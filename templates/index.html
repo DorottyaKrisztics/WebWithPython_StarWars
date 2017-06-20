@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Star Wars universe planets</h1>
-        
+
         <table id="planetTable">
             <tr>
                 <th>Name</th>
@@ -19,6 +19,21 @@
                 <th>Population</th>
             </tr>  
         </table>
+
+        <button onclick="createNewRow()">Create row</button>
+        <script>
+            function createNewRow() {
+                var table = document.getElementById("planetTable");
+                var row = table.insertRow(-1);
+
+                for (var i = 0; i < 6; i++) {
+                    // 6 = var objectLengthBoard = Object.keys(item.boards).length;
+
+                    var cell = row.insertCell(i);
+                    cell.innerHTML = "NEW";
+                }
+            }
+        </script>
 
     </body>
 </html>
