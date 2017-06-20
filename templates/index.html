@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}" defer></script>
         <title>{{ title }}</title>
     </head>
     <body>
@@ -27,7 +29,7 @@
                 var row = table.insertRow(-1);
 
                 for (var i = 0; i < 6; i++) {
-                    // 6 = var objectLengthBoard = Object.keys(item.boards).length;
+                    // 6 = var objectLengthResults = Object.keys(item.results).length;
 
                     var cell = row.insertCell(i);
                     cell.innerHTML = "NEW";
