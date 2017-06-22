@@ -11,32 +11,22 @@
     <body>
         <h1>Star Wars universe planets</h1>
 
-        <table id="planetTable">
-            <tr>
-                <th>Name</th>
-                <th>Diameter</th> 
-                <th>Climate</th>
-                <th>Terrain</th>
-                <th>Water</th> 
-                <th>Population</th>
-            </tr>  
-        </table>
+        <table id="planetTable" border= '1' >
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Diameter</th> 
+                    <th>Climate</th>
+                    <th>Terrain</th>
+                    <th>Water</th> 
+                    <th>Population</th>
+                </tr>
+            </thead>
 
-        <button onclick="createNewRow()">Create row</button>
-        <script>
-            function createNewRow() {
-                var table = document.getElementById("planetTable");
-                var row = table.insertRow(-1);
+            <tbody>
 
-                for (var i = 0; i < 6; i++) {
-                    // 6 = var objectLengthResults = Object.keys(item.results).length;
-
-                    var cell = row.insertCell(i);
-                    cell.innerHTML = "NEW";
-                }
-            }
-        </script>
-
+            </tbody>   
+        </table>        
     </body>
 </html>
 
