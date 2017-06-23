@@ -1,3 +1,4 @@
+
 function createNewRow(planetObj) {
    
     var newRow = document.createElement("tr");
@@ -25,7 +26,11 @@ function createNewRow(planetObj) {
     var newCell = document.createElement('td');
     newCell.textContent = planetObj['population'];
     newRow.appendChild(newCell);
-    
+
+    var newCell = document.createElement('td');
+    newCell.textContent = planetObj['residents'];
+    newRow.appendChild(newCell);
+
     return newRow;
 }
 
@@ -49,13 +54,11 @@ function processResults(planetArray) {
 
 
 function getPlanetData() {
-    $.getJSON('http://swapi.co/api/planets/', function(response){    
-        // var firstPlanet = response['results'][0]['name'];
+    $.getJSON('http://swapi.co/api/planets/', function(response){
         
         processResults(response['results']);
     });
 }
-
 
 
 $(document).ready(getPlanetData);
