@@ -27,8 +27,15 @@ function createNewRow(planetObj) {
     newCell.textContent = planetObj['population'];
     newRow.appendChild(newCell);
 
+    // button in the cell
     var newCell = document.createElement('td');
-    newCell.textContent = planetObj['residents'];
+    var button = document.createElement("button");
+
+    planetObjLen = planetObj['residents'].length;
+    var buttonText = document.createTextNode(planetObjLen);
+    
+    button.appendChild(buttonText);
+    newCell.appendChild(button);
     newRow.appendChild(newCell);
 
     return newRow;
@@ -46,7 +53,7 @@ function processResults(planetArray) {
     for (var i = 0; i < planetArray.length; i++) {
         var planet = planetArray[i];
         var row = createNewRow(planet);
-        // console.log(planet);
+        console.log(planet);
         document.getElementById("planetTable").appendChild(row);
     }
 }
