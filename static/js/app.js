@@ -122,6 +122,8 @@ function nextButton() {
 function getPlanetData(apiLink) {
     $.getJSON(apiLink, function(response){
         
+        $("#planetTable").find("tr:gt(0)").remove(); // removes all rows except the first
+
         processResults(response['results']);
 
         var previousButton = document.getElementById("previousButton");
