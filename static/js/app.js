@@ -27,15 +27,27 @@ function createNewRow(planetObj) {
     newCell.textContent = planetObj['population'];
     newRow.appendChild(newCell);
 
+
     // button in the cell
     var newCell = document.createElement('td');
-    var button = document.createElement("button");
-
     planetObjLen = planetObj['residents'].length;
-    var buttonText = document.createTextNode(planetObjLen);
-    
-    button.appendChild(buttonText);
-    newCell.appendChild(button);
+
+    if (planetObjLen != 0) {
+        var button = document.createElement("button");
+
+        button.setAttribute("type", "button"); 
+        button.setAttribute("class", "btn btn-primary btn-lg"); 
+        button.setAttribute("data-toggle", "modal"); 
+        button.setAttribute("data-target", "#residentsModal"); 
+        button.setAttribute("data-residents", "6"); 
+
+        var buttonText = document.createTextNode(planetObjLen + ' resident(s)');
+
+        button.appendChild(buttonText);
+        newCell.appendChild(button);
+    } else {
+        newCell.textContent = "No known residents";
+    }
     newRow.appendChild(newCell);
 
     return newRow;
