@@ -16,11 +16,11 @@ function addModalEventHandler() {
         
         for (var i = 0; i < residentsLinks.length; i++) {
             var apiLink = residentsLinks[i];
-            apiLink.replace('http', 'https');
-
+            var apiHttpsLink = apiLink.replace('http', 'https');
+            console.log(apiHttpsLink);
             $.ajax({
                 dataType: "json",
-                url: apiLink,
+                url: apiHttpsLink,
                 success: function(response) {
                     var residentObj = response;
                     console.log(residentObj);
@@ -82,8 +82,9 @@ function previousButton() {
         if (button.getAttribute("data-apilink") != "null") {
 
             var previousApiLink = button.getAttribute("data-apilink");
-            previousApiLink.replace('http', 'https');
-            getPlanetData(previousApiLink);  
+            var previousHttpsApiLink = previousApiLink.replace('http', 'https');
+            console.log(previousHttpsApiLink);
+            getPlanetData(previousHttpsApiLink);  
 
         } else {
             alert("there is not any previous page");
@@ -104,8 +105,9 @@ function nextButton() {
         if (button.getAttribute("data-apilink") != "null") {
 
             var nextApiLink = button.getAttribute("data-apilink");
-            nextApiLink.replace('http', 'https');
-            getPlanetData(nextApiLink); 
+            var nextHttpsApiLink = nextApiLink.replace('http', 'https');
+            console.log(nextHttpsApiLink);
+            getPlanetData(nextHttpsApiLink); 
 
         } else {
             alert("there is not any other page");
