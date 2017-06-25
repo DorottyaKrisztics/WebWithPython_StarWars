@@ -16,6 +16,8 @@ function addModalEventHandler() {
         
         for (var i = 0; i < residentsLinks.length; i++) {
             var apiLink = residentsLinks[i];
+            apiLink.replace('http', 'https');
+
             $.ajax({
                 dataType: "json",
                 url: apiLink,
@@ -80,6 +82,7 @@ function previousButton() {
         if (button.getAttribute("data-apilink") != "null") {
 
             var previousApiLink = button.getAttribute("data-apilink");
+            previousApiLink.replace('http', 'https');
             getPlanetData(previousApiLink);  
 
         } else {
@@ -101,6 +104,7 @@ function nextButton() {
         if (button.getAttribute("data-apilink") != "null") {
 
             var nextApiLink = button.getAttribute("data-apilink");
+            nextApiLink.replace('http', 'https');
             getPlanetData(nextApiLink); 
 
         } else {
@@ -185,10 +189,13 @@ function getPlanetData(apiLink) {
         processResults(response['results']);
 
         var previousButton = document.getElementById("previousButton");
-        previousButton.setAttribute("data-apilink", response['previous']); 
+        var previousLink = response['previous'];
+        previousButton.setAttribute("data-apilink", previousLink); 
+
 
         var nextButton = document.getElementById("nextButton");
-        nextButton.setAttribute("data-apilink", response['next']); 
+        var nextLink = response['next'];
+        nextButton.setAttribute("data-apilink", nextLink); 
 
         console.log(response);
     });
@@ -196,7 +203,7 @@ function getPlanetData(apiLink) {
 
 
 function main() {
-    getPlanetData('http://swapi.co/api/planets/?page=1');         
+    getPlanetData('https://swapi.co/api/planets/?page=1');         
     addModalEventHandler();
     previousButton();
     nextButton();
